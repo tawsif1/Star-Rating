@@ -3,4 +3,28 @@ display: none;
 }
 .wrapper{
     transform: translateY(50vh);
+    display:flex;
+    justify-content: center;
+    direction: rtl;
 }
+.wrapper label{
+   
+    cursor: pointer;
+}
+
+
+
+.wrapper label:hover ,.wrapper label:hover ~ label,input:checked  ~label{
+    color: red
+}
+
+
+
+
+
+
+    
+
+ /*copied*/
+
+ 

@@ -3,29 +3,51 @@ import axios from 'axios'
 import {FaStar} from"react-icons/fa"
 import "./ratings.css"
 export default function Ratings() {
-    const [ratingValue, setratingValue] = useState(0);
+    const [ratingValue, setratingValue] = useState({rating: 0 });
     //dummy posting url
     const url = "facebook.com"
-    const [info, setInfo] = useState({rating: ratingValue})
+    
 
     
    
     
     return (
         <div className="wrapper">
-            {[...Array(5)].map((ele,i) =>{
-            const rating = i+1;
-           return( <div style={{display: 'inline-block'}} onMouseEnter={(e) => {
+           
+               <input name="star" type="radio" value={5} id="1"  onChange={(e)=>{ setratingValue({rating: e.target.value}) ;
+            axios.post(url, ratingValue)}}/>
+            <label for="1">
+               <FaStar size={100} />
+            </label>
             
-           setratingValue(rating)
-           }} onMouseLeave={()=> setratingValue(0)} onClick={
-           axios.post(url,info)} >
-           <label><input type="radio" value={rating} 
-            />
-               <FaStar className="star" size={100} color={ ratingValue <  rating ? "#EECBF6":"#B11ACF" }
-               /></label> </div>)})}
-               <h1>{ratingValue}</h1>
+
+               <input name="star" type="radio" value={4} id="2" onChange={(e)=>{ setratingValue({rating: e.target.value}) ;
+            axios.post(url, ratingValue)}}/>
+               <label for="2">
+               <FaStar size={100} />
+            </label>
+            
+               <input name="star" type="radio" value={3} id="3" onChange={(e)=>{ setratingValue({rating: e.target.value}) ;
+            axios.post(url, ratingValue)}}/>
+               <label for="3">
+               <FaStar size={100} />
+            </label>
+           
+               <input name="star" type="radio" value={2} id="4" onChange={(e)=>{ setratingValue({rating: e.target.value}) ;
+            axios.post(url, ratingValue)}} />
+               <label for="4">
+               <FaStar size={100} />
+            </label>
+            
+               <input name="star" type="radio" value={1} id="5" onChange={(e)=>{ setratingValue({rating: e.target.value}) ;
+            axios.post(url, ratingValue)}}/>
+               <label for="5">
+               <FaStar size={100} />
+            </label> 
+            <h1>{ratingValue.rating}</h1>
+           
                
         </div>
+      
     )
 }
