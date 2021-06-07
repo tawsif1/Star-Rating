@@ -6,6 +6,8 @@ export default function Ratings() {
     const [ratingValue, setratingValue] = useState(0);
     //dummy posting url
     const url = "facebook.com"
+    const [info, setInfo] = useState({rating: ratingValue})
+
     
    
     
@@ -16,7 +18,8 @@ export default function Ratings() {
            return( <div style={{display: 'inline-block'}} onMouseEnter={(e) => {
             
            setratingValue(rating)
-           }} onMouseLeave={()=> setratingValue(0)} onClick={axios.post(url, ratingValue)} >
+           }} onMouseLeave={()=> setratingValue(0)} onClick={
+           axios.post(url,info)} >
            <label><input type="radio" value={rating} 
             />
                <FaStar className="star" size={100} color={ ratingValue <  rating ? "#EECBF6":"#B11ACF" }
