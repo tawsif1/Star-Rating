@@ -13,10 +13,20 @@ display: none;
 }
 
 
+.wrapper>input:checked + label:hover,
+.wrapper>input:checked ~ label:hover,
+.wrapper> label:hover ~ input:checked ~label,
+.wrapper> input:checked ~ label:hover ~label
+{
+    color: palegoldenrod;
+}
 
 .wrapper label:hover ,.wrapper label:hover ~ label,input:checked  ~label{
-    color: red
+    color: yellow
 }
+
+
+
 
 
 
